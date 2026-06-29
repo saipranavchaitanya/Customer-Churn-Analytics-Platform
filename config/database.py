@@ -14,7 +14,7 @@ DB_PASSWORD = os.getenv("DB_PASSWORD")
 
 # PostgreSQL Connection URL
 DATABASE_URL = (
-    f"postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+    f"postgresql+psycopg://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 )
 
 # Create SQLAlchemy Engine
