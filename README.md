@@ -23,7 +23,7 @@ This project demonstrates a complete **Data Engineering + Data Analytics** workf
 
 **Live Application**
 
-👉 **https://customerchurnanalyticsproject.streamlit.app/**
+👉 **https://customer-churn-analytics-project.streamlit.app/**
 
 ---
 
