@@ -1,21 +1,19 @@
 import streamlit as st
 import pandas as pd
 from sqlalchemy import text
-from dashboard.components.sidebar import show_sidebar, sidebar_header
+from components.sidebar import sidebar_header
 from db import engine
 from components.styles import load_css
-from components.theme import load_liquid_glass, load_theme
-
-load_css()
-load_theme()
-show_sidebar()
-load_liquid_glass()
-sidebar_header()
 st.set_page_config(
     page_title="Error Logs",
     page_icon="❌",
     layout="wide"
 )
+
+
+load_css()
+
+sidebar_header()
 
 st.title("❌ Error Logs")
 

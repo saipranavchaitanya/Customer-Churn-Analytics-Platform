@@ -2,52 +2,16 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 from sqlalchemy import text
-from components.theme import load_theme
-from db import engine
 from io import BytesIO
+
+from db import engine
 from components.styles import load_css
 from components.kpi_cards import show_kpis
 from components.chart_theme import apply_glass_chart
-from components.styles import load_css
-from components.theme import load_liquid_glass
-from components.chart_theme import apply_glass_chart
-from components.theme_toggle import theme_toggle
-
-load_css()
-load_theme()
-load_liquid_glass()
-theme = theme_toggle()
-if theme == "Light":
-
-    st.markdown("""
-    <script>
-
-    document.body.classList.add("light-theme");
-
-    </script>
-    """, unsafe_allow_html=True)
-def to_excel(dataframe):
-
-    output = BytesIO()
-
-    with pd.ExcelWriter(output, engine="openpyxl") as writer:
-        dataframe.to_excel(writer, index=False)
-
-    return output.getvalue()
-# Utility: apply a consistent 'glass' style to Plotly figures
-def apply_glass_chart(fig):
-    try:
-        fig.update_layout(
-            paper_bgcolor="rgba(0,0,0,0)",
-            plot_bgcolor="rgba(0,0,0,0)",
-            legend=dict(bgcolor="rgba(0,0,0,0)")
-        )
-    except Exception:
-        pass
-    return fig
+from components.sidebar import sidebar_header
 
 # ---------------------------------------------------
-# Page Config
+# PAGE CONFIG (Must be the first Streamlit command)
 # ---------------------------------------------------
 st.set_page_config(
     page_title="Customer Churn Analytics",
@@ -56,19 +20,31 @@ st.set_page_config(
 )
 
 # ---------------------------------------------------
-# Load CSS
+# LOAD CSS & SIDEBAR
 # ---------------------------------------------------
 load_css()
+sidebar_header()
 
 # ---------------------------------------------------
-# Load Data
+# HELPER FUNCTION
+# ---------------------------------------------------
+def to_excel(dataframe):
+    output = BytesIO()
+
+    with pd.ExcelWriter(output, engine="openpyxl") as writer:
+        dataframe.to_excel(writer, index=False)
+
+    return output.getvalue()
+
+# ---------------------------------------------------
+# LOAD DATA
 # ---------------------------------------------------
 query = "SELECT * FROM customers;"
 df = pd.read_sql(text(query), engine)
-# ---------------------------------------------------
-# Filters
-# ---------------------------------------------------
 
+# ---------------------------------------------------
+# FILTERS
+# ---------------------------------------------------
 st.markdown("""
 <div class="glass-card">
 <h2>🎯 Dashboard Filters</h2>
@@ -80,21 +56,20 @@ c1, c2, c3 = st.columns(3)
 with c1:
     state = st.selectbox(
         "State",
-        ["All"] + sorted(df["state"].unique().tolist())
+        ["All"] + sorted(df["state"].dropna().unique().tolist())
     )
 
 with c2:
     contract = st.selectbox(
         "Contract Type",
-        ["All"] + sorted(df["contract_type"].unique().tolist())
+        ["All"] + sorted(df["contract_type"].dropna().unique().tolist())
     )
 
 with c3:
     internet = st.selectbox(
         "Internet Service",
-        ["All"] + sorted(df["internet_service"].unique().tolist())
+        ["All"] + sorted(df["internet_service"].dropna().unique().tolist())
     )
-    # Apply Filters
 
 if state != "All":
     df = df[df["state"] == state]
@@ -104,20 +79,22 @@ if contract != "All":
 
 if internet != "All":
     df = df[df["internet_service"] == internet]
-# ---------------------------------------------------
-# Header
+    # ---------------------------------------------------
+# HEADER
 # ---------------------------------------------------
 st.markdown("""
 <div class="glass-card">
-<h1 style="text-align:center;margin-bottom:0;">
+
+<h1 style="text-align:center;">
 📊 Customer Churn Analytics Platform
 </h1>
 
 <p style="text-align:center;
-color:#cfd8dc;
-font-size:18px;
-margin-top:5px;">
+color:#d6d6d6;
+font-size:18px;">
+
 Business Intelligence Dashboard
+
 </p>
 
 </div>
@@ -126,20 +103,18 @@ Business Intelligence Dashboard
 st.write("")
 
 # ---------------------------------------------------
-# KPI Cards
+# KPI CARDS
 # ---------------------------------------------------
 show_kpis(df)
 
 st.write("")
 
 # ---------------------------------------------------
-# Charts Row 1
+# CHARTS ROW 1
 # ---------------------------------------------------
 col1, col2 = st.columns(2)
 
 with col1:
-
-    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
 
     st.subheader("👥 Customer Status")
 
@@ -151,88 +126,105 @@ with col1:
 
     fig = apply_glass_chart(fig)
 
-    st.plotly_chart(fig, use_container_width=True)
-
-    st.markdown("</div>", unsafe_allow_html=True)
+    st.plotly_chart(
+        fig,
+        use_container_width=True
+    )
 
 with col2:
 
-    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-
     st.subheader("📄 Contract Type")
 
+    contract_df = (
+        df["contract_type"]
+        .value_counts()
+        .reset_index()
+    )
+
+    contract_df.columns = [
+        "contract_type",
+        "count"
+    ]
+
     fig = px.bar(
-        df["contract_type"].value_counts().reset_index(),
+        contract_df,
         x="contract_type",
-        y="count"
+        y="count",
+        color="contract_type"
     )
 
     fig = apply_glass_chart(fig)
 
-    st.plotly_chart(fig, use_container_width=True)
-
-    st.markdown("</div>", unsafe_allow_html=True)
-
-# ---------------------------------------------------
-# Charts Row 2
+    st.plotly_chart(
+        fig,
+        use_container_width=True
+    )
+    # ---------------------------------------------------
+# CHARTS ROW 2
 # ---------------------------------------------------
 col3, col4 = st.columns(2)
 
 with col3:
 
-    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-
     st.subheader("🌐 Internet Service")
 
+    internet_df = (
+        df["internet_service"]
+        .value_counts()
+        .reset_index()
+    )
+
+    internet_df.columns = [
+        "internet_service",
+        "count"
+    ]
+
     fig = px.bar(
-        df["internet_service"].value_counts().reset_index(),
+        internet_df,
         x="internet_service",
         y="count",
         color="internet_service"
     )
 
-    fig.update_layout(
-        paper_bgcolor="rgba(0,0,0,0)",
-        plot_bgcolor="rgba(0,0,0,0)"
+    fig = apply_glass_chart(fig)
+
+    st.plotly_chart(
+        fig,
+        use_container_width=True
     )
-
-    st.plotly_chart(fig, use_container_width=True)
-
-    st.markdown("</div>", unsafe_allow_html=True)
 
 with col4:
 
-    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-
     st.subheader("📍 State Wise Customers")
 
+    state_df = (
+        df.groupby("state")
+        .size()
+        .reset_index(name="Customers")
+    )
+
     fig = px.bar(
-        df.groupby("state").size().reset_index(name="Customers"),
+        state_df,
         x="state",
         y="Customers",
         color="Customers"
     )
 
-    fig.update_layout(
-        paper_bgcolor="rgba(0,0,0,0)",
-        plot_bgcolor="rgba(0,0,0,0)"
+    fig = apply_glass_chart(fig)
+
+    st.plotly_chart(
+        fig,
+        use_container_width=True
     )
 
-    st.plotly_chart(fig, use_container_width=True)
-
-    st.markdown("</div>", unsafe_allow_html=True)
-
 # ---------------------------------------------------
-# Customer Table
+# CUSTOMER TABLE
 # ---------------------------------------------------
-
 st.write("")
 
 st.markdown("""
 <div class="table-title">
-
 📋 Customer Database
-
 </div>
 """, unsafe_allow_html=True)
 
@@ -242,9 +234,11 @@ st.dataframe(
     hide_index=True,
     height=500
 )
+
 # ---------------------------------------------------
-# Export Data
+# EXPORT DATA
 # ---------------------------------------------------
+st.write("")
 
 st.markdown("""
 <div class="glass-card">
@@ -260,6 +254,7 @@ st.download_button(
     file_name="customer_data.csv",
     mime="text/csv"
 )
+
 excel = to_excel(df)
 
 st.download_button(
@@ -268,52 +263,3 @@ st.download_button(
     file_name="customer_data.xlsx",
     mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
 )
-import streamlit as st
-import pandas as pd
-import plotly.express as px
-from sqlalchemy import text
-
-from db import engine
-from components.styles import load_css
-from components.kpi_cards import show_kpis
-from components.chart_theme import apply_glass_chart
-# ---------------------------------------------------
-# Page Config (must be first)
-# ---------------------------------------------------
-st.set_page_config(
-    page_title="Customer Churn Analytics",
-    page_icon="📊",
-    layout="wide"
-)
-
-# ---------------------------------------------------
-# Load Theme
-# ---------------------------------------------------
-load_css()
-
-# ---------------------------------------------------
-# Load Data
-# ---------------------------------------------------
-query = "SELECT * FROM customers;"
-df = pd.read_sql(text(query), engine)
-
-# ---------------------------------------------------
-# Header
-# ---------------------------------------------------
-st.markdown("""
-<div class="glass-card">
-
-<h1 style="text-align:center;">
-📊 Customer Churn Analytics Platform
-</h1>
-
-<p style="text-align:center;color:#d6d6d6;font-size:18px;">
-Business Intelligence Dashboard
-</p>
-
-</div>
-""", unsafe_allow_html=True)
-
-show_kpis(df)
-
-st.write("")
