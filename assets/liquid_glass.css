@@ -1,589 +1,201 @@
+/* ===========================
+   LIQUID GLASS THEME
+=========================== */
 
 :root{
- --bg:#0b1020;--glass:rgba(255,255,255,.08);--glass2:rgba(255,255,255,.12);
- --border:rgba(255,255,255,.15);--text:#fff;--muted:#cfd8dc;
- --primary:#4f8cff;--shadow:0 10px 35px rgba(0,0,0,.35);
+
+--glass-bg:rgba(255,255,255,.08);
+
+--glass-border:rgba(255,255,255,.15);
+
+--text:#ffffff;
+
+--muted:#c9d1d9;
+
+--shadow:0 8px 30px rgba(0,0,0,.25);
+
 }
-.stApp{
- background:
- radial-gradient(circle at 10% 10%,rgba(79,140,255,.25),transparent 35%),
- radial-gradient(circle at 90% 0%,rgba(122,92,255,.25),transparent 30%),
- radial-gradient(circle at 50% 100%,rgba(0,212,255,.18),transparent 35%),
- var(--bg);
- color:var(--text);
+
+html,
+body,
+[data-testid="stAppViewContainer"]{
+
+background:linear-gradient(
+135deg,
+#081120,
+#10233d,
+#1b3c67
+);
+
+color:white;
+
+font-family:"Segoe UI",sans-serif;
+
 }
-.block-container{padding:2rem 2.5rem;}
-section[data-testid="stSidebar"]{
- background:rgba(20,25,45,.55);
- backdrop-filter:blur(30px);
- border-right:1px solid var(--border);
+
+/* Sidebar */
+
+[data-testid="stSidebar"]{
+
+background:rgba(10,18,35,.75);
+
+backdrop-filter:blur(25px);
+
+border-right:1px solid rgba(255,255,255,.08);
+
 }
+
+/* Glass Card */
+
 .glass-card{
- background:var(--glass);
- backdrop-filter:blur(28px);
- border:1px solid var(--border);
- border-radius:28px;
- padding:22px;
- box-shadow:var(--shadow);
- transition:.35s;
- margin-bottom:20px;
-}
-.glass-card:hover{transform:translateY(-5px);background:var(--glass2);}
-[data-testid="metric-container"]{
- background:var(--glass)!important;
- border:1px solid var(--border);
- border-radius:24px;
- backdrop-filter:blur(28px);
- box-shadow:var(--shadow);
-}
-.js-plotly-plot{border-radius:24px;}
-[data-testid="stDataFrame"]{
- border-radius:20px;
- overflow:hidden;
- border:1px solid var(--border);
-}
-.stButton>button{
- border-radius:18px;
- background:var(--glass);
- border:1px solid var(--border);
- color:white;
-}
-.stButton>button:hover{background:var(--primary);}
-h1{font-size:48px;font-weight:800;color:white;}
-h2{font-size:30px;color:white;}
-h3{font-size:22px;color:white;}
-p,label,span{color:var(--muted);}
-::-webkit-scrollbar{width:10px;}
-::-webkit-scrollbar-thumb{background:rgba(255,255,255,.25);border-radius:10px;}
-footer{visibility:hidden;}
 
-/* Customization block 1: add page-specific overrides here. */
-/* Customization block 2: add page-specific overrides here. */
-/* Customization block 3: add page-specific overrides here. */
-/* Customization block 4: add page-specific overrides here. */
-/* Customization block 5: add page-specific overrides here. */
-/* Customization block 6: add page-specific overrides here. */
-/* Customization block 7: add page-specific overrides here. */
-/* Customization block 8: add page-specific overrides here. */
-/* Customization block 9: add page-specific overrides here. */
-/* Customization block 10: add page-specific overrides here. */
-/* Customization block 11: add page-specific overrides here. */
-/* Customization block 12: add page-specific overrides here. */
-/* Customization block 13: add page-specific overrides here. */
-/* Customization block 14: add page-specific overrides here. */
-/* Customization block 15: add page-specific overrides here. */
-/* Customization block 16: add page-specific overrides here. */
-/* Customization block 17: add page-specific overrides here. */
-/* Customization block 18: add page-specific overrides here. */
-/* Customization block 19: add page-specific overrides here. */
-/* Customization block 20: add page-specific overrides here. */
-/* Customization block 21: add page-specific overrides here. */
-/* Customization block 22: add page-specific overrides here. */
-/* Customization block 23: add page-specific overrides here. */
-/* Customization block 24: add page-specific overrides here. */
-/* Customization block 25: add page-specific overrides here. */
-/* Customization block 26: add page-specific overrides here. */
-/* Customization block 27: add page-specific overrides here. */
-/* Customization block 28: add page-specific overrides here. */
-/* Customization block 29: add page-specific overrides here. */
-/* Customization block 30: add page-specific overrides here. */
-/* Customization block 31: add page-specific overrides here. */
-/* Customization block 32: add page-specific overrides here. */
-/* Customization block 33: add page-specific overrides here. */
-/* Customization block 34: add page-specific overrides here. */
-/* Customization block 35: add page-specific overrides here. */
-/* Customization block 36: add page-specific overrides here. */
-/* Customization block 37: add page-specific overrides here. */
-/* Customization block 38: add page-specific overrides here. */
-/* Customization block 39: add page-specific overrides here. */
-/* Customization block 40: add page-specific overrides here. */
-/* Customization block 41: add page-specific overrides here. */
-/* Customization block 42: add page-specific overrides here. */
-/* Customization block 43: add page-specific overrides here. */
-/* Customization block 44: add page-specific overrides here. */
-/* Customization block 45: add page-specific overrides here. */
-/* Customization block 46: add page-specific overrides here. */
-/* Customization block 47: add page-specific overrides here. */
-/* Customization block 48: add page-specific overrides here. */
-/* Customization block 49: add page-specific overrides here. */
-/* Customization block 50: add page-specific overrides here. */
-/* Customization block 51: add page-specific overrides here. */
-/* Customization block 52: add page-specific overrides here. */
-/* Customization block 53: add page-specific overrides here. */
-/* Customization block 54: add page-specific overrides here. */
-/* Customization block 55: add page-specific overrides here. */
-/* Customization block 56: add page-specific overrides here. */
-/* Customization block 57: add page-specific overrides here. */
-/* Customization block 58: add page-specific overrides here. */
-/* Customization block 59: add page-specific overrides here. */
-/* Customization block 60: add page-specific overrides here. */
-/* Customization block 61: add page-specific overrides here. */
-/* Customization block 62: add page-specific overrides here. */
-/* Customization block 63: add page-specific overrides here. */
-/* Customization block 64: add page-specific overrides here. */
-/* Customization block 65: add page-specific overrides here. */
-/* Customization block 66: add page-specific overrides here. */
-/* Customization block 67: add page-specific overrides here. */
-/* Customization block 68: add page-specific overrides here. */
-/* Customization block 69: add page-specific overrides here. */
-/* Customization block 70: add page-specific overrides here. */
-/* Customization block 71: add page-specific overrides here. */
-/* Customization block 72: add page-specific overrides here. */
-/* Customization block 73: add page-specific overrides here. */
-/* Customization block 74: add page-specific overrides here. */
-/* Customization block 75: add page-specific overrides here. */
-/* Customization block 76: add page-specific overrides here. */
-/* Customization block 77: add page-specific overrides here. */
-/* Customization block 78: add page-specific overrides here. */
-/* Customization block 79: add page-specific overrides here. */
-/* Customization block 80: add page-specific overrides here. */
-/* Customization block 81: add page-specific overrides here. */
-/* Customization block 82: add page-specific overrides here. */
-/* Customization block 83: add page-specific overrides here. */
-/* Customization block 84: add page-specific overrides here. */
-/* Customization block 85: add page-specific overrides here. */
-/* Customization block 86: add page-specific overrides here. */
-/* Customization block 87: add page-specific overrides here. */
-/* Customization block 88: add page-specific overrides here. */
-/* Customization block 89: add page-specific overrides here. */
-/* Customization block 90: add page-specific overrides here. */
-/* Customization block 91: add page-specific overrides here. */
-/* Customization block 92: add page-specific overrides here. */
-/* Customization block 93: add page-specific overrides here. */
-/* Customization block 94: add page-specific overrides here. */
-/* Customization block 95: add page-specific overrides here. */
-/* Customization block 96: add page-specific overrides here. */
-/* Customization block 97: add page-specific overrides here. */
-/* Customization block 98: add page-specific overrides here. */
-/* Customization block 99: add page-specific overrides here. */
-/* Customization block 100: add page-specific overrides here. */
-/* Customization block 101: add page-specific overrides here. */
-/* Customization block 102: add page-specific overrides here. */
-/* Customization block 103: add page-specific overrides here. */
-/* Customization block 104: add page-specific overrides here. */
-/* Customization block 105: add page-specific overrides here. */
-/* Customization block 106: add page-specific overrides here. */
-/* Customization block 107: add page-specific overrides here. */
-/* Customization block 108: add page-specific overrides here. */
-/* Customization block 109: add page-specific overrides here. */
-/* Customization block 110: add page-specific overrides here. */
-/* Customization block 111: add page-specific overrides here. */
-/* Customization block 112: add page-specific overrides here. */
-/* Customization block 113: add page-specific overrides here. */
-/* Customization block 114: add page-specific overrides here. */
-/* Customization block 115: add page-specific overrides here. */
-/* Customization block 116: add page-specific overrides here. */
-/* Customization block 117: add page-specific overrides here. */
-/* Customization block 118: add page-specific overrides here. */
-/* Customization block 119: add page-specific overrides here. */
-/* Customization block 120: add page-specific overrides here. */
-/* Customization block 121: add page-specific overrides here. */
-/* Customization block 122: add page-specific overrides here. */
-/* Customization block 123: add page-specific overrides here. */
-/* Customization block 124: add page-specific overrides here. */
-/* Customization block 125: add page-specific overrides here. */
-/* Customization block 126: add page-specific overrides here. */
-/* Customization block 127: add page-specific overrides here. */
-/* Customization block 128: add page-specific overrides here. */
-/* Customization block 129: add page-specific overrides here. */
-/* Customization block 130: add page-specific overrides here. */
-/* Customization block 131: add page-specific overrides here. */
-/* Customization block 132: add page-specific overrides here. */
-/* Customization block 133: add page-specific overrides here. */
-/* Customization block 134: add page-specific overrides here. */
-/* Customization block 135: add page-specific overrides here. */
-/* Customization block 136: add page-specific overrides here. */
-/* Customization block 137: add page-specific overrides here. */
-/* Customization block 138: add page-specific overrides here. */
-/* Customization block 139: add page-specific overrides here. */
-/* Customization block 140: add page-specific overrides here. */
-/* Customization block 141: add page-specific overrides here. */
-/* Customization block 142: add page-specific overrides here. */
-/* Customization block 143: add page-specific overrides here. */
-/* Customization block 144: add page-specific overrides here. */
-/* Customization block 145: add page-specific overrides here. */
-/* Customization block 146: add page-specific overrides here. */
-/* Customization block 147: add page-specific overrides here. */
-/* Customization block 148: add page-specific overrides here. */
-/* Customization block 149: add page-specific overrides here. */
-/* Customization block 150: add page-specific overrides here. */
-/* Customization block 151: add page-specific overrides here. */
-/* Customization block 152: add page-specific overrides here. */
-/* Customization block 153: add page-specific overrides here. */
-/* Customization block 154: add page-specific overrides here. */
-/* Customization block 155: add page-specific overrides here. */
-/* Customization block 156: add page-specific overrides here. */
-/* Customization block 157: add page-specific overrides here. */
-/* Customization block 158: add page-specific overrides here. */
-/* Customization block 159: add page-specific overrides here. */
-/* Customization block 160: add page-specific overrides here. */
-/* Customization block 161: add page-specific overrides here. */
-/* Customization block 162: add page-specific overrides here. */
-/* Customization block 163: add page-specific overrides here. */
-/* Customization block 164: add page-specific overrides here. */
-/* Customization block 165: add page-specific overrides here. */
-/* Customization block 166: add page-specific overrides here. */
-/* Customization block 167: add page-specific overrides here. */
-/* Customization block 168: add page-specific overrides here. */
-/* Customization block 169: add page-specific overrides here. */
-/* Customization block 170: add page-specific overrides here. */
-/* Customization block 171: add page-specific overrides here. */
-/* Customization block 172: add page-specific overrides here. */
-/* Customization block 173: add page-specific overrides here. */
-/* Customization block 174: add page-specific overrides here. */
-/* Customization block 175: add page-specific overrides here. */
-/* Customization block 176: add page-specific overrides here. */
-/* Customization block 177: add page-specific overrides here. */
-/* Customization block 178: add page-specific overrides here. */
-/* Customization block 179: add page-specific overrides here. */
-/* Customization block 180: add page-specific overrides here. */
-/* Customization block 181: add page-specific overrides here. */
-/* Customization block 182: add page-specific overrides here. */
-/* Customization block 183: add page-specific overrides here. */
-/* Customization block 184: add page-specific overrides here. */
-/* Customization block 185: add page-specific overrides here. */
-/* Customization block 186: add page-specific overrides here. */
-/* Customization block 187: add page-specific overrides here. */
-/* Customization block 188: add page-specific overrides here. */
-/* Customization block 189: add page-specific overrides here. */
-/* Customization block 190: add page-specific overrides here. */
-/* Customization block 191: add page-specific overrides here. */
-/* Customization block 192: add page-specific overrides here. */
-/* Customization block 193: add page-specific overrides here. */
-/* Customization block 194: add page-specific overrides here. */
-/* Customization block 195: add page-specific overrides here. */
-/* Customization block 196: add page-specific overrides here. */
-/* Customization block 197: add page-specific overrides here. */
-/* Customization block 198: add page-specific overrides here. */
-/* Customization block 199: add page-specific overrides here. */
-/* Customization block 200: add page-specific overrides here. */
-/* Customization block 201: add page-specific overrides here. */
-/* Customization block 202: add page-specific overrides here. */
-/* Customization block 203: add page-specific overrides here. */
-/* Customization block 204: add page-specific overrides here. */
-/* Customization block 205: add page-specific overrides here. */
-/* Customization block 206: add page-specific overrides here. */
-/* Customization block 207: add page-specific overrides here. */
-/* Customization block 208: add page-specific overrides here. */
-/* Customization block 209: add page-specific overrides here. */
-/* Customization block 210: add page-specific overrides here. */
-/* Customization block 211: add page-specific overrides here. */
-/* Customization block 212: add page-specific overrides here. */
-/* Customization block 213: add page-specific overrides here. */
-/* Customization block 214: add page-specific overrides here. */
-/* Customization block 215: add page-specific overrides here. */
-/* Customization block 216: add page-specific overrides here. */
-/* Customization block 217: add page-specific overrides here. */
-/* Customization block 218: add page-specific overrides here. */
-/* Customization block 219: add page-specific overrides here. */
-/* Customization block 220: add page-specific overrides here. */
-/* Customization block 221: add page-specific overrides here. */
-/* Customization block 222: add page-specific overrides here. */
-/* Customization block 223: add page-specific overrides here. */
-/* Customization block 224: add page-specific overrides here. */
-/* Customization block 225: add page-specific overrides here. */
-/* Customization block 226: add page-specific overrides here. */
-/* Customization block 227: add page-specific overrides here. */
-/* Customization block 228: add page-specific overrides here. */
-/* Customization block 229: add page-specific overrides here. */
-/* Customization block 230: add page-specific overrides here. */
-/* Customization block 231: add page-specific overrides here. */
-/* Customization block 232: add page-specific overrides here. */
-/* Customization block 233: add page-specific overrides here. */
-/* Customization block 234: add page-specific overrides here. */
-/* Customization block 235: add page-specific overrides here. */
-/* Customization block 236: add page-specific overrides here. */
-/* Customization block 237: add page-specific overrides here. */
-/* Customization block 238: add page-specific overrides here. */
-/* Customization block 239: add page-specific overrides here. */
-/* Customization block 240: add page-specific overrides here. */
-/* Customization block 241: add page-specific overrides here. */
-/* Customization block 242: add page-specific overrides here. */
-/* Customization block 243: add page-specific overrides here. */
-/* Customization block 244: add page-specific overrides here. */
-/* Customization block 245: add page-specific overrides here. */
-/* Customization block 246: add page-specific overrides here. */
-/* Customization block 247: add page-specific overrides here. */
-/* Customization block 248: add page-specific overrides here. */
-/* Customization block 249: add page-specific overrides here. */
-/* Customization block 250: add page-specific overrides here. */
-/* Customization block 251: add page-specific overrides here. */
-/* Customization block 252: add page-specific overrides here. */
-/* Customization block 253: add page-specific overrides here. */
-/* Customization block 254: add page-specific overrides here. */
-/* Customization block 255: add page-specific overrides here. */
-/* Customization block 256: add page-specific overrides here. */
-/* Customization block 257: add page-specific overrides here. */
-/* Customization block 258: add page-specific overrides here. */
-/* Customization block 259: add page-specific overrides here. */
-/* Customization block 260: add page-specific overrides here. */
-/* Customization block 261: add page-specific overrides here. */
-/* Customization block 262: add page-specific overrides here. */
-/* Customization block 263: add page-specific overrides here. */
-/* Customization block 264: add page-specific overrides here. */
-/* Customization block 265: add page-specific overrides here. */
-/* Customization block 266: add page-specific overrides here. */
-/* Customization block 267: add page-specific overrides here. */
-/* Customization block 268: add page-specific overrides here. */
-/* Customization block 269: add page-specific overrides here. */
-/* Customization block 270: add page-specific overrides here. */
-/* Customization block 271: add page-specific overrides here. */
-/* Customization block 272: add page-specific overrides here. */
-/* Customization block 273: add page-specific overrides here. */
-/* Customization block 274: add page-specific overrides here. */
-/* Customization block 275: add page-specific overrides here. */
-/* Customization block 276: add page-specific overrides here. */
-/* Customization block 277: add page-specific overrides here. */
-/* Customization block 278: add page-specific overrides here. */
-/* Customization block 279: add page-specific overrides here. */
-/* Customization block 280: add page-specific overrides here. */
-/* Customization block 281: add page-specific overrides here. */
-/* Customization block 282: add page-specific overrides here. */
-/* Customization block 283: add page-specific overrides here. */
-/* Customization block 284: add page-specific overrides here. */
-/* Customization block 285: add page-specific overrides here. */
-/* Customization block 286: add page-specific overrides here. */
-/* Customization block 287: add page-specific overrides here. */
-/* Customization block 288: add page-specific overrides here. */
-/* Customization block 289: add page-specific overrides here. */
-/* Customization block 290: add page-specific overrides here. */
-/* Customization block 291: add page-specific overrides here. */
-/* Customization block 292: add page-specific overrides here. */
-/* Customization block 293: add page-specific overrides here. */
-/* Customization block 294: add page-specific overrides here. */
-/* Customization block 295: add page-specific overrides here. */
-/* Customization block 296: add page-specific overrides here. */
-/* Customization block 297: add page-specific overrides here. */
-/* Customization block 298: add page-specific overrides here. */
-/* Customization block 299: add page-specific overrides here. */
-/* Customization block 300: add page-specific overrides here. */
-/* ================= KPI CARDS ================= */
+background:var(--glass-bg);
 
-.kpi-card{
+border:1px solid var(--glass-border);
 
-background:rgba(255,255,255,.08);
+backdrop-filter:blur(25px);
 
-backdrop-filter:blur(30px);
+-webkit-backdrop-filter:blur(25px);
 
--webkit-backdrop-filter:blur(30px);
+border-radius:22px;
 
-border:1px solid rgba(255,255,255,.15);
+padding:24px;
 
-border-radius:30px;
+margin-bottom:20px;
 
-padding:25px;
+box-shadow:var(--shadow);
 
-height:180px;
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-transition:.4s;
-
-box-shadow:
-
-0 12px 40px rgba(0,0,0,.35),
-
-inset 0 1px 0 rgba(255,255,255,.18);
+transition:.35s;
 
 }
 
-.kpi-card:hover{
+.glass-card:hover{
 
-transform:
-
-translateY(-8px)
-
-scale(1.03);
+transform:translateY(-3px);
 
 background:rgba(255,255,255,.12);
 
 }
 
-.kpi-icon{
+/* Titles */
 
-width:65px;
+h1{
 
-height:65px;
+font-size:46px;
 
-border-radius:50%;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-font-size:32px;
-
-margin-bottom:15px;
-
-box-shadow:0 5px 20px rgba(0,0,0,.3);
-
-}
-
-.kpi-title{
-
-font-size:16px;
-
-color:#D6D6D6;
-
-font-weight:500;
-
-}
-
-.kpi-value{
-
-margin-top:12px;
-
-font-size:34px;
-
-font-weight:800;
+font-weight:700;
 
 color:white;
 
 }
-/* ===========================
-   LIQUID GLASS SIDEBAR
-=========================== */
 
-section[data-testid="stSidebar"]{
-    background:rgba(15,18,35,0.55);
-    backdrop-filter:blur(35px);
-    -webkit-backdrop-filter:blur(35px);
-    border-right:1px solid rgba(255,255,255,.12);
-}
+h2{
 
-section[data-testid="stSidebar"] > div{
-    padding-top:20px;
-}
+font-size:30px;
 
-section[data-testid="stSidebar"] h1,
-section[data-testid="stSidebar"] h2,
-section[data-testid="stSidebar"] h3,
-section[data-testid="stSidebar"] label,
-section[data-testid="stSidebar"] span{
-    color:white !important;
-}
-
-.sidebar-card{
-
-    background:rgba(255,255,255,.08);
-
-    border:1px solid rgba(255,255,255,.12);
-
-    backdrop-filter:blur(30px);
-
-    border-radius:25px;
-
-    padding:20px;
-
-    text-align:center;
-
-    margin-bottom:25px;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.25);
+color:white;
 
 }
 
-.sidebar-title{
+h3{
 
-    font-size:24px;
-
-    font-weight:700;
-
-    color:white;
+color:white;
 
 }
 
-.sidebar-sub{
+/* Buttons */
 
-    color:#d6d6d6;
+.stButton>button{
 
-    font-size:14px;
+border-radius:18px;
 
-    margin-top:8px;
+border:none;
 
-}
+background:#4F8DFF;
 
-hr{
+color:white;
 
-    border:1px solid rgba(255,255,255,.08);
+padding:.7rem 1.5rem;
 
-}
-/* =========================================
-   PLOTLY LIQUID GLASS CHARTS
-========================================= */
+font-weight:600;
 
-.chart-card{
-
-    background:rgba(255,255,255,.08);
-
-    backdrop-filter:blur(30px);
-
-    -webkit-backdrop-filter:blur(30px);
-
-    border:1px solid rgba(255,255,255,.12);
-
-    border-radius:30px;
-
-    padding:20px;
-
-    margin-top:15px;
-
-    margin-bottom:20px;
-
-    box-shadow:
-    0 15px 35px rgba(0,0,0,.30),
-    inset 0 1px 0 rgba(255,255,255,.15);
-
-    transition:.4s;
+transition:.3s;
 
 }
 
-.chart-card:hover{
+.stButton>button:hover{
 
-    transform:translateY(-8px);
+transform:scale(1.03);
 
-    background:rgba(255,255,255,.10);
-
-}
-
-.chart-title{
-
-    font-size:24px;
-
-    font-weight:700;
-
-    color:white;
-
-    margin-bottom:20px;
-
-    text-align:center;
+background:#6AA6FF;
 
 }
 
-.chart-sub{
+/* Dataframe */
 
-    color:#D4D4D4;
+[data-testid="stDataFrame"]{
 
-    text-align:center;
+background:rgba(255,255,255,.05);
 
-    margin-top:-10px;
+border-radius:20px;
 
-    margin-bottom:20px;
-
-    font-size:14px;
+padding:15px;
 
 }
-/* ===================================
-            TABLE
-=================================== */
+
+/* Charts */
+
+.js-plotly-plot{
+
+background:transparent!important;
+
+}
+
+/* Metrics */
+
+[data-testid="metric-container"]{
+
+background:rgba(255,255,255,.08);
+
+border-radius:20px;
+
+padding:18px;
+
+border:1px solid rgba(255,255,255,.08);
+
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+
+}
+
+/* Inputs */
+
+.stSelectbox div[data-baseweb="select"]{
+
+background:rgba(255,255,255,.08);
+
+border-radius:14px;
+
+}
+
+.stTextInput input{
+
+border-radius:14px;
+
+background:rgba(255,255,255,.08);
+
+color:white;
+
+}
+
+/* Download Buttons */
+
+.stDownloadButton button{
+
+border-radius:18px;
+
+}
+
+/* Table Title */
 
 .table-title{
 
@@ -591,230 +203,26 @@ font-size:28px;
 
 font-weight:700;
 
-color:white;
-
-margin-top:20px;
-
-margin-bottom:20px;
-
-padding:18px;
-
-background:rgba(255,255,255,.08);
-
-border:1px solid rgba(255,255,255,.12);
-
-backdrop-filter:blur(30px);
-
-border-radius:25px;
-
-text-align:center;
-
-box-shadow:
-
-0 10px 35px rgba(0,0,0,.25);
+margin:25px 0;
 
 }
 
-/* Streamlit dataframe */
+/* Hide Streamlit Header */
 
-[data-testid="stDataFrame"]{
+header{
 
-background:rgba(255,255,255,.08)!important;
-
-border-radius:25px!important;
-
-border:1px solid rgba(255,255,255,.12)!important;
-
-backdrop-filter:blur(25px);
-
-overflow:hidden;
+visibility:hidden;
 
 }
 
-/* Header */
+footer{
 
-[data-testid="stDataFrame"] thead{
-
-background:rgba(255,255,255,.12)!important;
+visibility:hidden;
 
 }
 
-/* Hover */
+#MainMenu{
 
-[data-testid="stDataFrame"] tbody tr:hover{
-
-background:rgba(255,255,255,.06)!important;
-
-}
-
-/* Rounded */
-
-[data-testid="stDataFrame"] iframe{
-
-border-radius:25px;
-
-}
-/* ==========================================
-   PREMIUM SIDEBAR
-========================================== */
-
-section[data-testid="stSidebar"]{
-
-background:rgba(15,20,35,.65);
-
-backdrop-filter:blur(40px);
-
--webkit-backdrop-filter:blur(40px);
-
-border-right:1px solid rgba(255,255,255,.12);
-
-box-shadow:
-
-8px 0 40px rgba(0,0,0,.35);
-
-}
-
-section[data-testid="stSidebar"]>div{
-
-padding-top:15px;
-
-padding-left:15px;
-
-padding-right:15px;
-
-}
-
-/* Sidebar buttons */
-
-button[kind="header"]{
-
-border-radius:18px;
-
-}
-
-/* Navigation */
-
-[data-testid="stSidebarNav"]{
-
-background:transparent;
-
-}
-
-/* Every page item */
-
-[data-testid="stSidebarNav"] ul{
-
-padding-top:10px;
-
-}
-
-[data-testid="stSidebarNav"] li{
-
-border-radius:16px;
-
-margin-bottom:8px;
-
-transition:.3s;
-
-}
-
-[data-testid="stSidebarNav"] li:hover{
-
-background:rgba(255,255,255,.10);
-
-transform:translateX(5px);
-
-}
-
-/* Selected page */
-
-[data-testid="stSidebarNav"] li[data-selected="true"]{
-
-background:rgba(59,130,246,.35);
-
-border:1px solid rgba(255,255,255,.15);
-
-}
-/* =============================
-PLOTLY
-=============================*/
-
-.js-plotly-plot{
-
-border-radius:30px;
-
-overflow:hidden;
-
-background:transparent!important;
-
-}
-
-.plotly{
-
-border-radius:30px;
-
-}
-
-.modebar{
-
-background:rgba(255,255,255,.05)!important;
-
-border-radius:15px!important;
-
-}
-
-.modebar-btn{
-
-color:white!important;
-
-}
-/* ===============================
-FILTERS
-===============================*/
-
-div[data-baseweb="select"]{
-
-background:rgba(255,255,255,.08)!important;
-
-border-radius:18px!important;
-
-border:1px solid rgba(255,255,255,.12)!important;
-
-backdrop-filter:blur(20px);
-
-}
-
-div[data-baseweb="select"]:hover{
-
-border:1px solid #3B82F6!important;
-
-}
-/* ===========================
-LIGHT THEME
-=========================== */
-
-.light-theme{
-
-background:#F5F7FA !important;
-
-color:#111 !important;
-
-}
-
-.light-theme .glass-card{
-
-background:rgba(255,255,255,.85);
-
-border:1px solid rgba(0,0,0,.08);
-
-color:#111;
-
-}
-
-.light-theme .kpi-card{
-
-background:rgba(255,255,255,.90);
-
-color:#111;
+visibility:hidden;
 
 }
