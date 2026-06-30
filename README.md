@@ -414,7 +414,7 @@ https://github.com/saipranavchaitanya
 
 ### 🚀 Live Application
 
-https://customerchurnanalyticsproject.streamlit.app/
+https://customer-churn-analytics-project.streamlit.app/
 
 ### 💼 LinkedIn
 
