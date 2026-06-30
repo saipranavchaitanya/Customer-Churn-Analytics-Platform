@@ -136,15 +136,11 @@ with col2:
     st.subheader("📄 Contract Type")
 
     contract_df = (
-        df["contract_type"]
-        .value_counts()
-        .reset_index()
-    )
-
-    contract_df.columns = [
-        "contract_type",
-        "count"
-    ]
+    df["contract_type"]
+    .value_counts()
+    .rename_axis("contract_type")
+    .reset_index(name="count")
+)
 
     fig = px.bar(
         contract_df,
@@ -169,15 +165,11 @@ with col3:
     st.subheader("🌐 Internet Service")
 
     internet_df = (
-        df["internet_service"]
-        .value_counts()
-        .reset_index()
-    )
-
-    internet_df.columns = [
-        "internet_service",
-        "count"
-    ]
+    df["internet_service"]
+    .value_counts()
+    .rename_axis("internet_service")
+    .reset_index(name="count")
+)
 
     fig = px.bar(
         internet_df,
