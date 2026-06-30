@@ -1,5 +1,26 @@
 import streamlit as st
 
+def card(icon, title, value, color):
+
+    st.markdown(f"""
+    <div class="kpi-card">
+
+        <div class="kpi-icon" style="background:{color};">
+            {icon}
+        </div>
+
+        <div class="kpi-title">
+            {title}
+        </div>
+
+        <div class="kpi-value">
+            {value}
+        </div>
+
+    </div>
+    """, unsafe_allow_html=True)
+
+
 def show_kpis(df):
 
     total = len(df)
@@ -14,12 +35,17 @@ def show_kpis(df):
 
     c1,c2,c3,c4,c5 = st.columns(5)
 
-    c1.metric("Customers",total)
+    with c1:
+        card("👥","Customers",f"{total:,}","#3B82F6")
 
-    c2.metric("Active",active)
+    with c2:
+        card("✅","Active",f"{active:,}","#22C55E")
 
-    c3.metric("Churned",churn)
+    with c3:
+        card("❌","Churned",f"{churn:,}","#EF4444")
 
-    c4.metric("Revenue",f"₹{revenue:,.0f}")
+    with c4:
+        card("💰","Revenue",f"₹{revenue:,.0f}","#F59E0B")
 
-    c5.metric("Churn Rate",f"{churn_rate}%")
+    with c5:
+        card("📈","Churn Rate",f"{churn_rate}%","#8B5CF6")

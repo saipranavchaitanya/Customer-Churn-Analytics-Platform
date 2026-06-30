@@ -1,26 +1,24 @@
 import streamlit as st
+from pathlib import Path
 
 def load_css():
 
-    st.markdown("""
-    <style>
+    css_files = [
+        "assets/styles.css",
+        "assets/liquid_glass.css"
+    ]
 
-    .main{
-        background-color:#f8f9fa;
-    }
+    all_css = ""
 
-    div[data-testid="metric-container"]{
-        background:white;
-        padding:18px;
-        border-radius:15px;
-        box-shadow:0px 3px 10px rgba(0,0,0,.12);
-        text-align:center;
-    }
+    for css_file in css_files:
 
-    h1{
-        color:#0F62FE;
-    }
+        path = Path(css_file)
 
-    </style>
-    """,
-    unsafe_allow_html=True)
+        if path.exists():
+
+            all_css += path.read_text(encoding="utf-8")
+
+    st.markdown(
+        f"<style>{all_css}</style>",
+        unsafe_allow_html=True
+    )

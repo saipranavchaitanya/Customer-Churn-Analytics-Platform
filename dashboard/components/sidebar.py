@@ -1,18 +1,43 @@
-"""Sidebar filters for the dashboard.
+import streamlit as st
 
-This module provides a sidebar_filters function that accepts a DataFrame
-and returns a filtered DataFrame. Currently it returns the DataFrame
-unchanged (placeholder for actual filter logic).
-"""
+def sidebar_header():
 
-def sidebar_filters(df):
-	"""Apply sidebar filters to the given DataFrame.
+    with st.sidebar:
 
-	Args:
-		df: pandas.DataFrame
+        st.markdown("""
 
-	Returns:
-		pandas.DataFrame: filtered DataFrame (currently unchanged)
-	"""
-	# TODO: implement actual sidebar filtering logic
-	return df
+        <div style="
+
+        background:rgba(255,255,255,.08);
+
+        backdrop-filter:blur(25px);
+
+        border-radius:25px;
+
+        padding:20px;
+
+        text-align:center;
+
+        margin-bottom:20px;
+
+        ">
+
+        <div style="font-size:55px;">
+        📊
+        </div>
+
+        <h2 style="margin-bottom:5px;">
+        Customer Analytics
+        </h2>
+
+        <p style="color:#D6D6D6;">
+        Business Intelligence Platform
+        </p>
+
+        </div>
+
+        """, unsafe_allow_html=True)
+
+        st.success("🟢 Database Connected")
+
+        st.caption("Version 2.0")
