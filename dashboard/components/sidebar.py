@@ -4,39 +4,10 @@ def sidebar_header():
 
     with st.sidebar:
 
-        st.markdown("""
+        st.title("📊 Customer Analytics")
+        st.caption("Business Intelligence Platform")
 
-        <div style="
-
-        background:rgba(255,255,255,.08);
-
-        backdrop-filter:blur(25px);
-
-        border-radius:25px;
-
-        padding:20px;
-
-        text-align:center;
-
-        margin-bottom:20px;
-
-        ">
-
-        <div style="font-size:55px;">
-        📊
-        </div>
-
-        <h2 style="margin-bottom:5px;">
-        Customer Analytics
-        </h2>
-
-        <p style="color:#D6D6D6;">
-        Business Intelligence Platform
-        </p>
-
-        </div>
-
-        """, unsafe_allow_html=True)
+        st.divider()
 
         st.success("🟢 Database Connected")
 

@@ -151,19 +151,53 @@ background:transparent!important;
 
 }
 
-/* Metrics */
+/* KPI Cards */
 
-[data-testid="metric-container"]{
+[data-testid="stMetric"]{
 
 background:rgba(255,255,255,.08);
 
+backdrop-filter:blur(20px);
+
+-webkit-backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.10);
+
 border-radius:20px;
 
-padding:18px;
+padding:20px;
 
-border:1px solid rgba(255,255,255,.08);
+box-shadow:0 8px 25px rgba(0,0,0,.25);
 
-box-shadow:0 10px 25px rgba(0,0,0,.2);
+transition:.3s;
+
+}
+
+[data-testid="stMetric"]:hover{
+
+transform:translateY(-4px);
+
+background:rgba(255,255,255,.12);
+
+}
+
+[data-testid="stMetricLabel"]{
+
+color:#d6d6d6 !important;
+
+font-size:16px !important;
+
+font-weight:600;
+
+}
+
+[data-testid="stMetricValue"]{
+
+color:white !important;
+
+font-size:34px !important;
+
+font-weight:700;
 
 }
 
