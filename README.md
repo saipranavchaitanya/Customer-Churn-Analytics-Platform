@@ -344,26 +344,6 @@ DB_PASSWORD=your_password
 
 ---
 
-# 📸 Dashboard Screenshots
-
-Replace these images with screenshots from your deployed application.
-
-### 🏠 Home Dashboard
-
-![Home Dashboard](images/home_dashboard.png)
-
-### 👥 Customer Dashboard
-
-![Customer Dashboard](images/customer_dashboard.png)
-
-### 📉 Churn Dashboard
-
-![Churn Dashboard](images/churn_dashboard.png)
-
-### ⚙️ ETL Monitor
-
-![ETL Monitor](images/etl_monitor.png)
-
 ---
 
 # 🎯 Skills Demonstrated
@@ -406,7 +386,7 @@ Replace these images with screenshots from your deployed application.
 
 **B.Tech – Computer Science Engineering**
 
-**Data Analyst | BI Developer | Data Engineering Enthusiast**
+**Data Analyst | BI Developer **
 
 ### 🌐 GitHub
 
@@ -418,7 +398,7 @@ https://customer-churn-analytics-project.streamlit.app/
 
 ### 💼 LinkedIn
 
-Add your LinkedIn profile here.
+https://www.linkedin.com/in/anspranavchaitanya
 
 ---
 
