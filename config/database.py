@@ -17,5 +17,16 @@ DATABASE_URL = (
     f"postgresql+psycopg://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 )
 
-# Create SQLAlchemy Engine
-engine = create_engine(DATABASE_URL)
+# Debugging
+print("DB_HOST =", DB_HOST)
+print("DB_PORT =", DB_PORT)
+print("DB_NAME =", DB_NAME)
+print("DB_USER =", DB_USER)
+print("DB_PASSWORD =", DB_PASSWORD)
+print("DATABASE_URL =", DATABASE_URL)
+
+# SQLAlchemy Engine
+engine = create_engine(
+    DATABASE_URL,
+    connect_args={"sslmode": "require"}
+)
