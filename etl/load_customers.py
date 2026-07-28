@@ -1,5 +1,7 @@
 import time
 
+from sqlalchemy import text
+
 from generator.generate_customers import generate_customers
 from validation.validate_customers import validate_customers
 from transformation.transform_customers import transform_customers
@@ -16,12 +18,20 @@ def load_customers():
 
     try:
 
+        # Generate data
         df = generate_customers()
 
+        # Validate
         valid_df, invalid_df = validate_customers(df)
 
+        # Transform
         transformed_df = transform_customers(valid_df)
 
+        # Delete all existing records
+        with engine.begin() as conn:
+            conn.execute(text("TRUNCATE TABLE customers RESTART IDENTITY"))
+
+        # Load fresh data
         transformed_df.to_sql(
             name="customers",
             con=engine,
